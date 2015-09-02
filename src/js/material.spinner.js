@@ -117,7 +117,6 @@ $(window).on('load', () => {
   $('[data-spinner]').each(function() {
     const $this = $(this);
     const option = $this.data('spinner');
-    console.log(option);
     if (!$this.data('spinnerHandler')) {
       Plugin.call($this, option, this);
     }
