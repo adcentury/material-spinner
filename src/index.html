@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>loading-spinner</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+</head>
+<body>
+<main>
+  <div id="js-one" data-spinner='{"radius": 100}'></div>
+  <div id="js-two"></div>
+</main>
+<script src="libs/js/jquery.min.js"></script>
+<script src="js/jquery.spinner.js"></script>
+<script>
+  $(function() {
+    $('#js-two').spinner({
+      strokeWidth: 2,
+      color: '#ff0000'
+    });
+  });
+</script>
+</body>
+</html>
