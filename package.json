@@ -1,7 +1,7 @@
 {
   "name": "material-spinner",
   "description": "A jQuery based Material Design Spinner",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "keywords": [
     "jquery",
     "material design",
@@ -10,7 +10,7 @@
     "loading"
   ],
   "license": "MIT",
-  "main": "dist/js/spinner.js",
+  "main": "dist/js/material.spinner.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/adcentury/material-spinner"
