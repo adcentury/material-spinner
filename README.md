@@ -8,14 +8,14 @@ Include the script after jquery.
 
 ```html
 <script src="path/to/jquery.min.js"></script>
-<script src="path/to/spinner.min.js"></script>
+<script src="path/to/material.spinner.min.js"></script>
 ```
 
 or require it in CommonJS
 
 ```javascript
 var $ = require('jquery');
-require('spinner');
+require('material-spinner');
 ```
 
 ## Usage

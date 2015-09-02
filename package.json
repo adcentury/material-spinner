@@ -1,7 +1,7 @@
 {
   "name": "material-spinner",
   "description": "A jQuery based Material Design Spinner",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "keywords": [
     "jquery",
     "material design",

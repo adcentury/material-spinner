@@ -66,14 +66,14 @@ gulp.task('copy', () => {
 let browserifyOption = {
   cache: {},
   pachageCache: {},
-  entries: ['./src/js/jquery.spinner.js'],
+  entries: ['./src/js/material.spinner.js'],
   transform: ['babelify']
 };
 
 const bundle = (b) => {
   return b.bundle()
     .on('error', $.util.log.bind($.util, 'Browserify Error'))
-    .pipe(source('jquery.spinner.js'))
+    .pipe(source('material.spinner.js'))
     .pipe(buffer())
     .pipe(gulp.dest(paths.dist.js))
     .pipe($.size({title: 'script'}))
