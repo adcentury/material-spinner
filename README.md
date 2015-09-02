@@ -23,7 +23,7 @@ require('spinner');
 ### via Data API
 
 ```html
-<div id="spinner" data-spinner="{radius: 25}"></div>
+<div id="spinner" data-spinner='{"radius": 25}'></div>
 ```
 
 ### via Javascript
