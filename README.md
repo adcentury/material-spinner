@@ -2,16 +2,23 @@
 
 > A jQuery based Material Design Spinner.
 
-## Installation
+## Install
 
-Include the script after jquery.
+Install via npm
+```
+npm install material-spinner
+```
+
+or just [download it](https://raw.githubusercontent.com/adcentury/material-spinner/master/dist/js/material.spinner.min.js).
+
+Include the script after jquery
 
 ```html
 <script src="path/to/jquery.min.js"></script>
 <script src="path/to/material.spinner.min.js"></script>
 ```
 
-or require it in CommonJS
+or require it in CommonJS.
 
 ```javascript
 var $ = require('jquery');
