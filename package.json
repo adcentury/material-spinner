@@ -1,7 +1,7 @@
 {
   "name": "material-spinner",
   "description": "A jQuery based Material Design Spinner",
-  "version": "0.0.6",
+  "version": "0.0.9",
   "keywords": [
     "jquery",
     "material design",
@@ -41,6 +41,7 @@
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.5",
+    "gulp-wrap": "^0.11.0",
     "run-sequence": "^1.1.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",

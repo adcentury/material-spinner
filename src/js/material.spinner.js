@@ -1,4 +1,9 @@
-import $ from 'jquery';
+/**
+ * Material Spinner @ 0.0.9
+ * @author Lei Lei
+ * MIT License
+ */
+
 import jquerykeyframes from 'jquerykeyframes';
 
 class Spinner {
