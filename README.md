@@ -38,6 +38,6 @@ $('#spinner').spinner({radius: 25});
 | ---- | ------- | ----------- |
 | radius | 25 | Optional, in `px` |
 | strokeWidth | 5 | Optional, in `px` |
-| duration | 2 | Optional, in `sencond`. Represent the duaration of a round |
+| duration | 2 | Optional, in `seconds`. Represent the duaration of a round |
 | color | '#3f88f8' | Optional. MUST BE a valid color hex string |
 
