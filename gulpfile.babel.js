@@ -75,6 +75,7 @@ const bundle = (b) => {
     .on('error', $.util.log.bind($.util, 'Browserify Error'))
     .pipe(source('material.spinner.js'))
     .pipe(buffer())
+    .pipe($.wrap({src: 'src/js/umd-wrapper.js'}))
     .pipe(gulp.dest(paths.dist.js))
     .pipe($.size({title: 'script'}))
     .pipe($.uglify())

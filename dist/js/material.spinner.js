@@ -1,4 +1,16 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function (factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['jquery'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // Node/CommonJS
+    module.exports = factory(require('jquery'));
+  } else {
+    // Browser globals
+    factory(jQuery);
+  }
+}(function ($) {
+  (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
  * StyleFix 1.0.3 & PrefixFree 1.0.7
  * @author Lea Verou
@@ -9,7 +21,12 @@
 (function(){var e=!1,n="animation",t=prefix="",i=["Webkit","Moz","O","ms","Khtml"];$(window).load(function(){var a=document.body.style;if(void 0!==a.animationName&&(e=!0),e===!1)for(var r=0;r<i.length;r++)if(void 0!==a[i[r]+"AnimationName"]){prefix=i[r],n=prefix+"Animation",t="-"+prefix.toLowerCase()+"-",e=!0;break}});var a=function(e){return $("<style>").attr({"class":"keyframe-style",id:e,type:"text/css"}).appendTo("head")};$.keyframe={getVendorPrefix:function(){return t},isSupported:function(){return e},generate:function(e){var i=e.name||"",r="@"+t+"keyframes "+i+" {";for(var o in e)if("name"!==o){r+=o+" {";for(var f in e[o])r+=f+":"+e[o][f]+";";r+="}"}r=PrefixFree.prefixCSS(r+"}");var s=$("style#"+e.name);if(s.length>0){s.html(r);var m=$("*").filter(function(){this.style[n+"Name"]===i});m.each(function(){var e,n;e=$(this),n=e.data("keyframeOptions"),e.resetKeyframe(function(){e.playKeyframe(n)})})}else a(i).append(r)},define:function(e){if(e.length)for(var n=0;n<e.length;n++){var t=e[n];this.generate(t)}else this.generate(e)}};var r="animation-play-state",o="running";$.fn.resetKeyframe=function(e){$(this).css(t+r,o).css(t+"animation","none");e&&setTimeout(e,1)},$.fn.pauseKeyframe=function(){$(this).css(t+r,"paused")},$.fn.resumeKeyframe=function(){$(this).css(t+r,o)},$.fn.playKeyframe=function(e,n){var i=function(e){return e=$.extend({duration:"0s",timingFunction:"ease",delay:"0s",iterationCount:1,direction:"normal",fillMode:"forwards"},e),[e.name,e.duration,e.timingFunction,e.delay,e.iterationCount,e.direction,e.fillMode].join(" ")},a="";if($.isArray(e)){for(var f=[],s=0;s<e.length;s++)f.push("string"==typeof e[s]?e[s]:i(e[s]));a=f.join(", ")}else a="string"==typeof e?e:i(e);var m=t+"animation",u=["webkit","moz","MS","o",""],c=function(e,n,t){for(var i=0;i<u.length;i++){u[i]||(n=n.toLowerCase());var a=u[i]+n;e.off(a).on(a,t)}};return this.each(function(i,f){var s=$(f).addClass("boostKeyframe").css(t+r,o).css(m,a).data("keyframeOptions",e);n&&(c(s,"AnimationIteration",n),c(s,"AnimationEnd",n))}),this},a("boost-keyframe").append(" .boostKeyframe{"+t+"transform:scale3d(1,1,1);}")}).call(this);
 
 },{}],2:[function(require,module,exports){
-(function (global){
+/**
+ * Material Spinner @ 0.0.9
+ * @author Lei Lei
+ * MIT License
+ */
+
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -17,10 +34,6 @@ var _createClass = (function () { function defineProperties(target, props) { for
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-var _jquery = (typeof window !== "undefined" ? window['jQuery'] : typeof global !== "undefined" ? global['jQuery'] : null);
-
-var _jquery2 = _interopRequireDefault(_jquery);
 
 var _jquerykeyframes = require('jquerykeyframes');
 
@@ -32,7 +45,7 @@ var Spinner = (function () {
 
     var time = Date.now();
     this.options = options;
-    this.$element = (0, _jquery2['default'])(element);
+    this.$element = $(element);
 
     this.realRadius = this.options.radius - this.options.strokeWidth;
 
@@ -49,7 +62,7 @@ var Spinner = (function () {
       var dashSpace = this.options.radius * 8;
       var dashLength = [1, (this.realRadius * 4.7).toFixed(1), (this.realRadius * 4.7).toFixed(1)];
       var dashOffset = ['0', (0 - this.realRadius * 1.75).toFixed(1), (0 - this.realRadius * 6.23).toFixed(1)];
-      _jquery2['default'].keyframe.define([{
+      $.keyframe.define([{
         name: this.rotateName,
         from: {
           'transform': 'rotate(0deg)'
@@ -130,8 +143,8 @@ function Plugin(option) {
   var _this = this;
 
   return this.each(function () {
-    var $this = (0, _jquery2['default'])(_this);
-    var options = _jquery2['default'].extend({}, Spinner.DEFAULTS, option);
+    var $this = $(_this);
+    var options = $.extend({}, Spinner.DEFAULTS, option);
 
     if (!$this.data('spinnerHandler')) {
       $this.data('spinnerHandler', new Spinner(_this, options));
@@ -139,20 +152,20 @@ function Plugin(option) {
   });
 }
 
-_jquery2['default'].fn.spinner = Plugin;
-_jquery2['default'].fn.spinner.Constructor = Spinner;
+$.fn.spinner = Plugin;
+$.fn.spinner.Constructor = Spinner;
 
 // Register data api
-(0, _jquery2['default'])(window).on('load', function () {
-  (0, _jquery2['default'])('[data-spinner]').each(function () {
-    var $this = (0, _jquery2['default'])(this);
+$(window).on('load', function () {
+  $('[data-spinner]').each(function () {
+    var $this = $(this);
     var option = $this.data('spinner');
-    console.log(option);
     if (!$this.data('spinnerHandler')) {
       Plugin.call($this, option, this);
     }
   });
 });
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"jquerykeyframes":1}]},{},[2]);
+
+}));
